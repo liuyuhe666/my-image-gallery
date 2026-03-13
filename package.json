@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "cloudinary": "^2.9.0",
@@ -21,10 +22,19 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
+    "eslint": "^10.0.3",
+    "eslint-config-hyoban": "^7.0.3",
     "eslint-config-next": "16.1.6",
+    "lint-staged": "^16.3.3",
+    "simple-git-hooks": "^2.13.1",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bunx lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   },
   "ignoreScripts": [
     "sharp",
@@ -34,4 +44,5 @@
     "sharp",
     "unrs-resolver"
   ]
+
 }
